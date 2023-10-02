@@ -11,6 +11,11 @@ nav {
     align-items: center;
 }
 
+h2 {
+    font-size: 1.5em;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
+
 #city-search {
     display: flex;
     justify-content: flex-start;
@@ -32,12 +37,31 @@ nav {
     flex-direction: column;
     padding: 5px;
     margin: 10px;
-    width: 300px;
+    width: -webkit-fill-available;
     align-items: center;
     border-radius: 10px;
+}
+
+#search-input {
+    width: -webkit-fill-available;
+    margin: 5px;
 }
 
 #display-city {
     display: flex;
     flex-direction: row;
+}
+
+.container {
+    display: flex;
+}
+
+.search-container {
+    width: 30%;
+
+}
+
+.weather-container {
+    width: 70%;
+    margin-left: 40px;
 }

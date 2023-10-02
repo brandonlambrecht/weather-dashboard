@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/style.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
 
     <title>Weather Dashboard</title>
 </head>
@@ -15,30 +15,35 @@
     </nav>
 
     <main>
-        <h1 id="city-search">Search for a City:</h1>
-        <textarea name="search" id="search-txt-area" cols="40" rows="2"></textarea>
-        <button id="search-btn">Search</button>
-        <div id="display-city">Display City Results</div>
-        <p id="temp"></p>
-        <p id="wind"></p>
-        <p id="humidty"></p>
+        <section class="container">
+            <div class="search-container">
+                <h1 id="city-search">Search for a City: </h1>
+                <input type="text" name="search" id="search-input" cols="" rows=""></input>
+                <button id="search-btn">Search</button>
+            </div>
 
-        <h2 id="5-day-forecast">5-Day Forecast:</h2>
-        <div class="display-forecast"></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
+            <div class="weather-container">
+                <h2 id="city-name"></h2>
+                <img src="" id="weather-icon">
+                <p id="current-date"></p>
+                <p id="temp"></p>
+                <p id="wind"></p>
+                <p id="humidty"></p>
+
+
+                <h2 id="5-day-forecast">5-Day Forecast:</h2>
+                <div class="display-forecast"></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </section>
 
     </main>
 
-
-
-
-
-
-
-    <script scr="./js/script.js"></script>
+    <script src="./assets/js/script.js"></script>
 </body>
 
 
