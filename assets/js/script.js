@@ -30,7 +30,7 @@ function populateFromLocalStorage() {
 };
 
 function getCoordinates(city) {
-    fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${APIKey}`)
+    fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${APIKey}`)
         .then(function (res) {
             return res.json()
         })
