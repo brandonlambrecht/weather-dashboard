@@ -8,7 +8,6 @@ var weatherIcon = document.querySelector('#weather-icon')
 var displayTemp = document.querySelector('#temp')
 var displayWind = document.querySelector('#wind')
 var displayHumidty = document.querySelector('#humidty')
-// var currentDate = dayjs().format('DD/MM/YYYY')
 var displayCurrentDate = document.querySelector('#current-date')
 var pastResults = document.querySelector('#past-results')
 
@@ -36,7 +35,6 @@ function getCoordinates(city) {
             return res.json()
         })
         .then(function (data) {
-            // console.log(data)
             var lat = data[0].lat
             var lon = data[0].lon
             getCurrentWeather(lat, lon)
@@ -45,15 +43,10 @@ function getCoordinates(city) {
         })
 }
 
-// function getParams() {
-//     var searchParamsArr = document.location.search.split('=');
 
-
-// Display current weather on webpage
 function displayCurrentWeather(data) {
     cityName.textContent = data.name
     weatherIcon.src = `https://openweathermap.org/img/wn/${data.weather[0].icon}.png`
-    // displayCurrentDate.textContent = currentDate
     displayTemp.textContent = "Temp: " + data.main.temp + " F"
     displayWind.textContent = "Wind: " + data.wind.speed + " MPH"
     displayHumidty.textContent = "Humidity: " + data.main.humidity + "%"
@@ -94,7 +87,6 @@ function getCurrentWeather(lat, lon) {
             return res.json()
         })
         .then(function (data) {
-            // console.log("current", data)
             displayCurrentWeather(data)
 
         })
@@ -106,7 +98,6 @@ function getForecast(lat, lon) {
             return res.json()
         })
         .then(function (data) {
-            // console.log("5day", data)
             displayForecast(data)
         })
 }
