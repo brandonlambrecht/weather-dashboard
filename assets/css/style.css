@@ -65,3 +65,24 @@ h2 {
     width: 70%;
     margin-left: 40px;
 }
+
+.heading-flex {
+    display: flex;
+}
+
+#display-forecast {
+    display: flex;
+}
+
+#display-forecast div {
+    background-color: blue;
+    margin: 10px;
+    color: white;
+}
+
+#past-results {
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    margin: 5px;
+}

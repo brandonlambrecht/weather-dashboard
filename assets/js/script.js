@@ -10,19 +10,24 @@ var displayWind = document.querySelector('#wind')
 var displayHumidty = document.querySelector('#humidty')
 // var currentDate = dayjs().format('DD/MM/YYYY')
 var displayCurrentDate = document.querySelector('#current-date')
-
+var pastResults = document.querySelector('#past-results')
 
 function handleSearchClick() {
     var searchCity = searchInput.value
     var citiesFromStorage = JSON.parse(localStorage.getItem('cities')) || [];
     citiesFromStorage.push(searchCity);
     localStorage.setItem('cities', JSON.stringify(citiesFromStorage));
-    getCoordinates(searchCity)
+    getCoordinates(searchCity);
+    populateFromLocalStorage();
 }
 
 function populateFromLocalStorage() {
     var citiesFromStorage = JSON.parse(localStorage.getItem('cities')) || [];
-
+    citiesFromStorage.forEach(function (val) {
+        var btnEl = document.createElement("button")
+        btnEl.textContent = val
+        pastResults.appendChild(btnEl)
+    });
 };
 
 function getCoordinates(city) {
@@ -59,7 +64,20 @@ function displayForecast(data) {
     console.log(data)
     for (let i = 0; i < 40; i += 8) {
         console.log(data.list[i])
-        displayForecastWeather.textContent = data.list.main
+        var dayData = data.list[i];
+        var divEl = document.createElement("div");
+        var inner = `
+        <div>
+        <p>${dayData.dt_txt}</p>
+        <p>Temp: ${dayData.main.temp} F</p>
+        <p>Wind: ${dayData.wind.speed} MPH</p>
+        <p>Humidty: ${dayData.main.humidity} %</P> 
+        <div>
+        `
+
+        divEl.innerHTML = inner;
+
+        displayForecastWeather.appendChild(divEl);
 
 
     }
@@ -97,3 +115,4 @@ function getForecast(lat, lon) {
 
 searchBtn.addEventListener("click", handleSearchClick)
 
+populateFromLocalStorage();
